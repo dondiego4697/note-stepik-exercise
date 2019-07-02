@@ -43,7 +43,7 @@ extension Note {
         return color
     }
     
-    static func parse(json: [String: Any]) -> NoteModel? {
+    static func parse(json: [String: Any]) -> Note? {
         guard
             let title = json["title"] as? String,
             let content = json["content"] as? String
@@ -52,7 +52,7 @@ extension Note {
         }
         
         let uid = json["uid"] as? String
-        let priority = NoteModel.stringToPriority(json["priority"] as? String)
+        let priority = Note.stringToPriority(json["priority"] as? String)
         
         var color: UIColor? = nil
         if json["color"] != nil {
@@ -72,7 +72,7 @@ extension Note {
         
         let expiredDate = Date.stringToDate(json["expiredDate"] as? String)
         
-        let note = NoteModel(
+        let note = Note(
             title: title,
             content: content,
             priority: priority,
@@ -91,14 +91,14 @@ extension Note {
         result["title"] = self.title
         result["content"] = self.content
         
-        result["color"] = NoteModel.colorToJson(self.color)
+        result["color"] = Note.colorToJson(self.color)
         
         if self.expiredDate != nil {
             result["expiredDate"] = Date.dateToString(self.expiredDate!)
         }
         
         if self.priority != Priority.base {
-            result["priority"] = NoteModel.priorityToString(self.priority)
+            result["priority"] = Note.priorityToString(self.priority)
         }
         
         return result

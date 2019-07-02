@@ -8,9 +8,9 @@ enum NotebookError: Error {
 }
 
 class Notebook {
-    private(set) var notes = Dictionary<UID, NoteModel>()
+    private(set) var notes = Dictionary<UID, Note>()
     
-    public func add(_ note: NoteModel) {
+    public func add(_ note: Note) {
         if !self.notes.keys.contains(note.uid) {
             self.notes[note.uid] = note
         }
@@ -34,7 +34,7 @@ class Notebook {
     public func saveToFile() throws -> Void {
         let filePath = self.getPath()
         if filePath == nil {
-            throw NotebookModelError.WrongFilePath("")
+            throw NotebookError.WrongFilePath("")
         }
         
         let result = self.notes.map{ (_, note) -> [String: Any] in
@@ -44,14 +44,14 @@ class Notebook {
         let data = try JSONSerialization.data(withJSONObject: result, options: [])
         let res = FileManager.default.createFile(atPath: filePath!, contents: data, attributes: nil)
         if !res {
-            throw NotebookModelError.CouldntCreateFile("")
+            throw NotebookError.CouldntCreateFile("")
         }
     }
     
     public func loadFromFile() throws -> Void {
         let filePath = self.getPath()
         if filePath == nil {
-            throw NotebookModelError.WrongFilePath("")
+            throw NotebookError.WrongFilePath("")
         }
         
         let string = try String(contentsOfFile: filePath!)
@@ -60,11 +60,11 @@ class Notebook {
         let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [Dictionary<String,Any>]
         
         if jsonArray == nil {
-            throw NotebookModelError.CouldntParseFile("")
+            throw NotebookError.CouldntParseFile("")
         }
         
         for item in jsonArray! {
-            let note = NoteModel.parse(json: item)
+            let note = Note.parse(json: item)
             if (note != nil) {
                 self.add(note!)
             }

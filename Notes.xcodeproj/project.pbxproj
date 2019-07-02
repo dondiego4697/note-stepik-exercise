@@ -10,13 +10,13 @@
 		44EB075A22CB140900C303F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EB075922CB140900C303F7 /* AppDelegate.swift */; };
 		44EB075C22CB140900C303F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EB075B22CB140900C303F7 /* ViewController.swift */; };
 		44EB075F22CB140900C303F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44EB075D22CB140900C303F7 /* Main.storyboard */; };
-		44EB076122CB140A00C303F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44EB076022CB140A00C303F7 /* Assets.xcassets */; };
 		44EB076422CB140A00C303F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44EB076222CB140A00C303F7 /* LaunchScreen.storyboard */; };
 		44EB076D22CB14CC00C303F7 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EB076C22CB14CC00C303F7 /* DateExtension.swift */; };
 		44EB076F22CB15A600C303F7 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EB076E22CB15A600C303F7 /* Note.swift */; };
 		44EB077122CB15B700C303F7 /* Notebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EB077022CB15B700C303F7 /* Notebook.swift */; };
 		44EB077322CB15D000C303F7 /* NoteExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EB077222CB15D000C303F7 /* NoteExtension.swift */; };
 		44EB077522CB162200C303F7 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 44EB077422CB162200C303F7 /* .gitignore */; };
+		44EB077722CB26B700C303F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44EB077622CB26B700C303F7 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +24,6 @@
 		44EB075922CB140900C303F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44EB075B22CB140900C303F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		44EB075E22CB140900C303F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		44EB076022CB140A00C303F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44EB076322CB140A00C303F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44EB076522CB140A00C303F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44EB076C22CB14CC00C303F7 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -32,6 +31,7 @@
 		44EB077022CB15B700C303F7 /* Notebook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notebook.swift; sourceTree = "<group>"; };
 		44EB077222CB15D000C303F7 /* NoteExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteExtension.swift; sourceTree = "<group>"; };
 		44EB077422CB162200C303F7 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		44EB077622CB26B700C303F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Notes/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,11 +65,11 @@
 		44EB075822CB140900C303F7 /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				44EB077622CB26B700C303F7 /* Assets.xcassets */,
 				44EB076B22CB145100C303F7 /* Model */,
 				44EB075922CB140900C303F7 /* AppDelegate.swift */,
 				44EB075B22CB140900C303F7 /* ViewController.swift */,
 				44EB075D22CB140900C303F7 /* Main.storyboard */,
-				44EB076022CB140A00C303F7 /* Assets.xcassets */,
 				44EB076222CB140A00C303F7 /* LaunchScreen.storyboard */,
 				44EB076522CB140A00C303F7 /* Info.plist */,
 			);
@@ -147,7 +147,7 @@
 			files = (
 				44EB077522CB162200C303F7 /* .gitignore in Resources */,
 				44EB076422CB140A00C303F7 /* LaunchScreen.storyboard in Resources */,
-				44EB076122CB140A00C303F7 /* Assets.xcassets in Resources */,
+				44EB077722CB26B700C303F7 /* Assets.xcassets in Resources */,
 				44EB075F22CB140900C303F7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +310,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 39MDX3FTNZ;
 				INFOPLIST_FILE = Notes/Info.plist;
@@ -320,7 +321,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sdg.Notes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -328,6 +329,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 39MDX3FTNZ;
 				INFOPLIST_FILE = Notes/Info.plist;
@@ -338,7 +340,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sdg.Notes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
