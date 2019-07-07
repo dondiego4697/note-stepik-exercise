@@ -12,6 +12,16 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Logger.logger.info("App was runned")
+        
+        let notebook = Notebook()
+        do {
+            try notebook.loadFromFile()
+        } catch {
+            Logger.logger.error(error.localizedDescription)
+        }
     }
 }
+
 
