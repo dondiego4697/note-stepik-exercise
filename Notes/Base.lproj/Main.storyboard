@@ -18,20 +18,84 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JmS-dV-v5N">
-                                <rect key="frame" x="202" y="410" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Время: 40 сек" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjb-Nt-cN4">
+                                <rect key="frame" x="16" y="56" width="114" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="40" maximumValue="100" stepValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="KoC-96-ShV">
+                                <rect key="frame" x="304" y="52" width="94" height="29"/>
+                                <connections>
+                                    <action selector="stepperChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="mks-yJ-3XH"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Последний счет: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNS-NT-7WG">
+                                <rect key="frame" x="132.5" y="821" width="149" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMS-12-POZ">
+                                <rect key="frame" x="16" y="130" width="382" height="683"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Triangle" translatesAutoresizingMaskIntoConstraints="NO" id="j1b-2T-R8a">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="XZD-Yj-kvb"/>
+                                            <constraint firstAttribute="width" constant="80" id="wCM-DM-vqp"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.92428005749999997" green="0.89293862889999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="j1b-2T-R8a" firstAttribute="top" secondItem="hMS-12-POZ" secondAttribute="top" id="EbU-lx-rWK"/>
+                                    <constraint firstItem="j1b-2T-R8a" firstAttribute="leading" secondItem="hMS-12-POZ" secondAttribute="leading" id="KvT-wy-KMl"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94T-m6-V3O">
+                                <rect key="frame" x="181.5" y="92" width="51" height="30"/>
+                                <state key="normal" title="Начать"/>
+                                <connections>
+                                    <action selector="actionButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H4G-FS-ika"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="94T-m6-V3O" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2ln-Bx-BJx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hMS-12-POZ" secondAttribute="trailing" constant="16" id="6Al-XQ-Jp6"/>
+                            <constraint firstItem="nNS-NT-7WG" firstAttribute="top" secondItem="hMS-12-POZ" secondAttribute="bottom" constant="8" id="6oy-Ee-AYN"/>
+                            <constraint firstItem="94T-m6-V3O" firstAttribute="top" secondItem="KoC-96-ShV" secondAttribute="bottom" constant="11" id="8Ng-EW-srl"/>
+                            <constraint firstItem="hMS-12-POZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="KtM-oZ-L4d"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nNS-NT-7WG" secondAttribute="bottom" constant="20" id="Qmm-oO-9R8"/>
+                            <constraint firstItem="KoC-96-ShV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="TsR-a4-bbF"/>
+                            <constraint firstItem="KoC-96-ShV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Yjb-Nt-cN4" secondAttribute="trailing" constant="8" symbolic="YES" id="W1n-rE-wIg"/>
+                            <constraint firstItem="KoC-96-ShV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="X00-wA-Hzs"/>
+                            <constraint firstItem="Yjb-Nt-cN4" firstAttribute="centerY" secondItem="KoC-96-ShV" secondAttribute="centerY" id="hgP-MN-NAm"/>
+                            <constraint firstItem="Yjb-Nt-cN4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="jgz-Uu-jCv"/>
+                            <constraint firstItem="nNS-NT-7WG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="njb-Ml-HuU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KoC-96-ShV" secondAttribute="trailing" constant="16" id="rJ3-kM-Wat"/>
+                            <constraint firstItem="hMS-12-POZ" firstAttribute="top" secondItem="94T-m6-V3O" secondAttribute="bottom" constant="8" id="ygC-tI-wLI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="actionButton" destination="94T-m6-V3O" id="NeJ-UW-8g9"/>
+                        <outlet property="gameFieldView" destination="hMS-12-POZ" id="fdl-7w-ict"/>
+                        <outlet property="gameObject" destination="j1b-2T-R8a" id="5P0-fC-tTO"/>
+                        <outlet property="shapeX" destination="KvT-wy-KMl" id="O9g-wH-APR"/>
+                        <outlet property="shapeY" destination="EbU-lx-rWK" id="W2a-QX-eX3"/>
+                        <outlet property="stepper" destination="KoC-96-ShV" id="v7k-PB-FYm"/>
+                        <outlet property="timeLabel" destination="Yjb-Nt-cN4" id="Sv5-7v-ttZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="87.723214285714278"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Triangle" width="260" height="225"/>
+    </resources>
 </document>
