@@ -15,26 +15,20 @@ class ViewController: UIViewController {
     }
 
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var gameFieldView: UIView!
+    @IBOutlet weak var gameFieldView: GameFieldView!
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var actionButton: UIButton!
-    @IBOutlet weak var gameObject: UIImageView!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     private var gameTimeLeft: TimeInterval = 0
     private var gameTimer: Timer?
     private var timer: Timer?
     private let displayDuration: TimeInterval = 2
+    private var score = 0
 
     private func startGame() {
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(
-            timeInterval: displayDuration,
-            target: self,
-            selector: #selector(moveImage),
-            userInfo: nil,
-            repeats: true
-        )
-        timer?.fire()
+        score = 0
+        repositionImageWithTimer()
         
         gameTimer?.invalidate()
         gameTimer = Timer.scheduledTimer(
@@ -51,9 +45,6 @@ class ViewController: UIViewController {
         updateUI()
     }
     
-    @IBOutlet weak var shapeX: NSLayoutConstraint!
-    @IBOutlet weak var shapeY: NSLayoutConstraint!
-    
     @objc private func gameTimerTick() {
         gameTimeLeft -= 1
         
@@ -64,13 +55,26 @@ class ViewController: UIViewController {
         }
     }
     
+    func objectTapped() {
+        guard isGameActive else { return }
+        repositionImageWithTimer()
+        score += 1
+    }
+
     @objc private func moveImage() {
-        let maxX = gameFieldView.bounds.maxX - gameObject.frame.width
-        let maxY = gameFieldView.bounds.maxY - gameObject.bounds.height
-        
-        
-        shapeX.constant = CGFloat(arc4random_uniform(UInt32(maxX)))
-        shapeY.constant = CGFloat(arc4random_uniform(UInt32(maxY)))
+        gameFieldView.randomizeShape()
+    }
+    
+    private func repositionImageWithTimer() {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(
+            timeInterval: displayDuration,
+            target: self,
+            selector: #selector(moveImage),
+            userInfo: nil,
+            repeats: true
+        )
+        timer?.fire()
     }
 
     private func stopGame() {
@@ -78,9 +82,12 @@ class ViewController: UIViewController {
         updateUI()
         gameTimer?.invalidate()
         timer?.invalidate()
+        
+        scoreLabel.text = "Последний счет: \(score)"
     }
     
     private func updateUI() {
+        gameFieldView.isShapeHidden = !isGameActive
         stepper.isEnabled = !isGameActive
         if isGameActive {
             timeLabel.text = "Осталось: \(Int(gameTimeLeft)) сек"
@@ -94,6 +101,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        updateUI()
+        gameFieldView.shapeHitHandler = { [weak self] in
+            self?.objectTapped()
+        }
+
         gameFieldView.layer.borderWidth = 1
         gameFieldView.layer.borderColor = UIColor.gray.cgColor
         gameFieldView.layer.cornerRadius = 5

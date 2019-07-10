@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4424DB1822D607F300CCF91A /* GameFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4424DB1722D607F300CCF91A /* GameFieldView.swift */; };
 		44465CCC22D0ECBF00E6DA0E /* NotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44465CCB22D0ECBF00E6DA0E /* NotesTests.swift */; };
 		4484DCD922D1B3500012FC6A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4484DCD822D1B3500012FC6A /* Logger.swift */; };
 		4484DCDB22D1BEE40012FC6A /* LogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4484DCDA22D1BEE40012FC6A /* LogFormatter.swift */; };
@@ -40,6 +41,7 @@
 		0722055698457A86FDCE1FE9 /* Pods_Notes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Notes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0826754B9A176BB9A735088E /* Pods_NotesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DCE5864814BD7B01B479990 /* Pods-Notes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notes.debug.xcconfig"; path = "Target Support Files/Pods-Notes/Pods-Notes.debug.xcconfig"; sourceTree = "<group>"; };
+		4424DB1722D607F300CCF91A /* GameFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFieldView.swift; sourceTree = "<group>"; };
 		44465CC922D0ECBF00E6DA0E /* NotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44465CCB22D0ECBF00E6DA0E /* NotesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTests.swift; sourceTree = "<group>"; };
 		44465CCD22D0ECBF00E6DA0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				44FE786322CDE60C001ADF8E /* Env.swift */,
 				4484DCD822D1B3500012FC6A /* Logger.swift */,
 				4484DCDA22D1BEE40012FC6A /* LogFormatter.swift */,
+				4424DB1722D607F300CCF91A /* GameFieldView.swift */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				44EB076F22CB15A600C303F7 /* Note.swift in Sources */,
 				44EB077122CB15B700C303F7 /* Notebook.swift in Sources */,
 				44FE786422CDE60C001ADF8E /* Env.swift in Sources */,
+				4424DB1822D607F300CCF91A /* GameFieldView.swift in Sources */,
 				4484DCD922D1B3500012FC6A /* Logger.swift in Sources */,
 				4484DCDB22D1BEE40012FC6A /* LogFormatter.swift in Sources */,
 			);

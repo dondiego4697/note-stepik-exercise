@@ -36,22 +36,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMS-12-POZ">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMS-12-POZ" customClass="GameFieldView" customModule="Notes" customModuleProvider="target">
                                 <rect key="frame" x="16" y="130" width="382" height="683"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Triangle" translatesAutoresizingMaskIntoConstraints="NO" id="j1b-2T-R8a">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="XZD-Yj-kvb"/>
-                                            <constraint firstAttribute="width" constant="80" id="wCM-DM-vqp"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
                                 <color key="backgroundColor" red="0.92428005749999997" green="0.89293862889999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="j1b-2T-R8a" firstAttribute="top" secondItem="hMS-12-POZ" secondAttribute="top" id="EbU-lx-rWK"/>
-                                    <constraint firstItem="j1b-2T-R8a" firstAttribute="leading" secondItem="hMS-12-POZ" secondAttribute="leading" id="KvT-wy-KMl"/>
-                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shapeSize">
+                                        <size key="value" width="80" height="80"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94T-m6-V3O">
                                 <rect key="frame" x="181.5" y="92" width="51" height="30"/>
@@ -83,19 +75,19 @@
                     <connections>
                         <outlet property="actionButton" destination="94T-m6-V3O" id="NeJ-UW-8g9"/>
                         <outlet property="gameFieldView" destination="hMS-12-POZ" id="fdl-7w-ict"/>
-                        <outlet property="gameObject" destination="j1b-2T-R8a" id="5P0-fC-tTO"/>
-                        <outlet property="shapeX" destination="KvT-wy-KMl" id="O9g-wH-APR"/>
-                        <outlet property="shapeY" destination="EbU-lx-rWK" id="W2a-QX-eX3"/>
+                        <outlet property="scoreLabel" destination="nNS-NT-7WG" id="TDm-Ln-8rd"/>
                         <outlet property="stepper" destination="KoC-96-ShV" id="v7k-PB-FYm"/>
                         <outlet property="timeLabel" destination="Yjb-Nt-cN4" id="Sv5-7v-ttZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="qXX-7R-hHd">
+                    <connections>
+                        <action selector="objectTapped:" destination="BYZ-38-t0r" id="228-SA-UCb"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="87.723214285714278"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Triangle" width="260" height="225"/>
-    </resources>
 </document>
