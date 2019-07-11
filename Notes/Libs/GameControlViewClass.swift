@@ -3,9 +3,9 @@ import UIKit
 @IBDesignable
 class GameControlViewClass: UIView {
     
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var stepper: UIStepper!
-    @IBOutlet weak var actionButton: UIButton!
+    private let timeLabel = UILabel()
+    private let stepper = UIStepper()
+    private let actionButton = UIButton()
     
     @IBInspectable var gameTimeLeft: Double = 7 {
         didSet {
@@ -37,26 +37,73 @@ class GameControlViewClass: UIView {
         super.init(coder: aDecoder)
         setupViews()
     }
- 
-    private func setupViews() {
-        let xibView = loadViewFromXib()
-        xibView.frame = self.bounds
-        xibView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.addSubview(xibView)
+    
+    override var intrinsicContentSize: CGSize {
+        let stepperSize = stepper.intrinsicContentSize
+        let timeLabelSize = timeLabel.intrinsicContentSize
+        let actionButtonSize = actionButton.intrinsicContentSize
+        
+        let width = timeLabelSize.width + timeToStepperMargin + stepperSize.width
+        let height = stepperSize.height + actionButtonTopMargin + actionButtonSize.height
+        
+        return CGSize(width: width, height: height)
     }
     
-    private func loadViewFromXib() -> UIView {
-        let bundle = Bundle(for: type(of: self))
+    private let timeToStepperMargin: CGFloat = 8
+    private let actionButtonTopMargin: CGFloat = 8
+    override func layoutSubviews() {
+        super.layoutSubviews()
         
-        let nib = UINib(nibName: "GameControlView", bundle: bundle)
-        return nib.instantiate(withOwner: self, options: nil).first! as! UIView
+        let stepperSize = stepper.intrinsicContentSize
+        stepper.frame = CGRect(
+            origin: CGPoint(
+                x: bounds.maxX - stepperSize.width,
+                y: bounds.minY
+            ),
+            size: stepperSize
+        )
+        
+        let timelabelSize = timeLabel.intrinsicContentSize
+        timeLabel.frame = CGRect(
+            origin: CGPoint(
+                x: bounds.minX,
+                y: bounds.minY - (stepperSize.height - timelabelSize.height) / 2
+            ),
+            size: timelabelSize
+        )
+        
+        let actionButtonSize = actionButton.intrinsicContentSize
+        actionButton.frame = CGRect(
+            origin: CGPoint(
+                x: bounds.minX - (bounds.width - actionButtonSize.width) / 2,
+                y: stepper.frame.maxY - actionButtonTopMargin
+            ),
+            size: actionButtonSize
+        )
+    }
+ 
+    private func setupViews() {
+        addSubview(timeLabel)
+        addSubview(stepper)
+        addSubview(actionButton)
+        
+        timeLabel.translatesAutoresizingMaskIntoConstraints = true
+        stepper.translatesAutoresizingMaskIntoConstraints = true
+        actionButton.translatesAutoresizingMaskIntoConstraints = true
+        
+        stepper.addTarget(self, action: #selector(stepperChanged), for: .valueChanged)
+        actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
+        
+        updateUI()
+        
+        actionButton.setTitleColor(actionButton.tintColor, for: .normal)
     }
 
-    @IBAction func stepperChanged(_ sender: UIStepper) {
+    @objc func stepperChanged( ) {
         updateUI()
     }
 
-    @IBAction func actionButtonTapped(_ sender: UIButton) {
+    @objc func actionButtonTapped() {
         startStopHandler?()
     }
     
@@ -69,5 +116,7 @@ class GameControlViewClass: UIView {
             timeLabel.text = "Время: \(Int(stepper.value)) сек"
             actionButton.setTitle("Начать", for: .normal)
         }
+        
+        setNeedsLayout()
     }
 }
